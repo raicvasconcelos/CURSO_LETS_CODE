@@ -1,6 +1,7 @@
 import java.time.*;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAmount;
-import javax.sound.midi.Soundbank;
+import java.util.concurrent.TimeUnit;
 
 public class app {
 
@@ -12,22 +13,45 @@ public class app {
 
     // ZonedDateTime Tokyo = ZonedDateTime.of(LocalDate.now(),ZoneId.of( "Europe/Paris" ));
 
+    ZonedDateTime kolkata = ZonedDateTime.now(ZoneId.of("Asia/Kolkata"));
+
     ZonedDateTime paris = ZonedDateTime.now(ZoneId.of("Europe/Paris"));
 
     ZonedDateTime tokyo = ZonedDateTime.now(ZoneId.of("Asia/Tokyo"));
 
+    System.out.println("Em Tóquio é: " + tokyo.toLocalTime());
+    System.out.println("Em Paris é: " + paris.toLocalTime());
+
     ZonedDateTime timeConvert = tokyo.withZoneSameInstant(
       ZoneId.of("Europe/Paris")
     );
-    System.out.println(timeConvert);
+    System.out.println("A conversão de tempo é: "+timeConvert.toLocalTime());
 
     // Exercicio 2: Calcule a diferença em horas entre dois ZonedDateTime em diferentes timezones.
+    // System.out.println(kolkata);
+    // System.out.println(tokyo);
+    // System.out.println(paris);
+
+    Duration timeDiff = Duration.between(
+      tokyo.toLocalTime(),
+      kolkata.toLocalTime()
+    );
+
+    // System.out.println(timeDiff);
+    System.out.println(
+      "A Diferença de horas entre Tokyo e Calcutá é " +
+      timeDiff.abs().toHours() +
+      " horas e " +
+      timeDiff.abs().toMinutesPart() + 
+      " minutos"
+    );
+
 
     // Exercício 3: Calcule a quantidade de dias úteis entre duas datas.
 
     int workDays = diasUteis(
       LocalDate.of(2023, 02, 06),
-      LocalDate.of(2023, 8, 1)
+      LocalDate.of(2023, 8, 31)
     );
 
     System.out.println(
@@ -36,11 +60,24 @@ public class app {
 
     // Exercício 4: Calcule a quantidade de horas, minutos e segundos entre dois horarios.
 
-    LocalTime tempoI = LocalTime.of(0, 0, 1);
-    LocalTime tempoF = LocalTime.of(0, 0, 2);
+    LocalTime tempoI = LocalTime.of(19, 30, 0);
+    LocalTime tempoF = LocalTime.of(23, 0, 0);
 
     LocalTime tempoEntre = quantidadeHoras(tempoI, tempoF);
-    System.out.println("Entre " + tempoI + " e " + tempoF + " tem : " + tempoEntre.getHour() + " horas " + tempoEntre.getMinute() + " minutos" + " e " + tempoEntre.getSecond() + " segundos");
+    System.out.println(
+      "Entre " +
+      tempoI +
+      " e " +
+      tempoF +
+      " tem: " +
+      tempoEntre.getHour() +
+      " horas " +
+      tempoEntre.getMinute() +
+      " minutos" +
+      " e " +
+      tempoEntre.getSecond() +
+      " segundos"
+    );
   }
 
   public static int diasUteis(LocalDate d1, LocalDate d2) {
