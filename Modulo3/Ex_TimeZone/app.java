@@ -1,14 +1,11 @@
 import java.time.*;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAmount;
-import java.util.concurrent.TimeUnit;
 
 public class app {
 
   public static void main(String[] args) {
     // Exercicio 1: Converta um ZonedDateTime de "Asia/Tokyo" para "Europe/London".
 
-    ZonedDateTime local = ZonedDateTime.now();
+
     // System.out.println(local);
 
     // ZonedDateTime Tokyo = ZonedDateTime.of(LocalDate.now(),ZoneId.of( "Europe/Paris" ));
@@ -40,7 +37,7 @@ public class app {
     // System.out.println(timeDiff);
     System.out.println(
       "A Diferença de horas entre Tokyo e Calcutá é " +
-      timeDiff.abs().toHours() +
+      timeDiff.abs().toHoursPart() +
       " horas e " +
       timeDiff.abs().toMinutesPart() + 
       " minutos"
