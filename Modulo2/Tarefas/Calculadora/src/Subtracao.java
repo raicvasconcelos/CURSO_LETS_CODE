@@ -1,4 +1,4 @@
-public class Subtracao implements Calculo {
+public class Subtracao implements ICalculo {
 
   private double total;
 

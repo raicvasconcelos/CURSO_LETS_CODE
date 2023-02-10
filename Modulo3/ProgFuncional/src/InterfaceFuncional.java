@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -14,24 +15,54 @@ public class InterfaceFuncional {
   //        Exercicio 5: Crie uma implementação de foreach usando a interface Consumer
 
   public static void main(String[] args) {
-    exercicio1(5, 4);
+    exercicio1();
     exercicio2();
     exercicio3();
     exercicio4();
     exercicio5();
   }
 
-  public static void exercicio1(double v1, double v2) {
+  public static void exercicio1() {
+    Scanner keyboard = new Scanner(System.in);
+    System.out.println("Qual operação você deseja realizar?");
+    System.out.println("Entre o digito: ");
+    System.out.println("1 - Soma ");
+    System.out.println("2 - Subtração ");
+    System.out.println("3 - Multiplicação ");
+    System.out.println("4 - Divisão ");
+    int digito = keyboard.nextInt();
+
+    System.out.println("Entre o primeiro número: ");
+    double primeiroNumero = keyboard.nextDouble();
+    System.out.println("Entre o segundo número: ");
+    double segundoNumero = keyboard.nextDouble();
+
     ICalculadora soma = (valor1, valor2) -> valor1 + valor2;
     ICalculadora subtracao = (valor1, valor2) -> valor1 - valor2;
     ICalculadora multiplicacao = (valor1, valor2) -> valor1 * valor2;
     ICalculadora divisao = (valor1, valor2) -> valor1 / valor2;
 
+    keyboard.close();
+
     System.out.println("Exercício 1-------------------");
-    System.out.println("Soma: " + soma.calcula(v1, v2));
-    System.out.println("Subtração: " + subtracao.calcula(v1, v2));
-    System.out.println("Multiplicação: " + multiplicacao.calcula(v1, v2));
-    System.out.println("Divisão: " + divisao.calcula(v1, v2));
+
+    if (digito == 1) {
+      System.out.println(
+        "Subtração: " + soma.calcula(primeiroNumero, segundoNumero)
+      );
+    } else if (digito == 2) {
+      System.out.println(
+        "Subtração: " + subtracao.calcula(primeiroNumero, segundoNumero)
+      );
+    } else if (digito == 3) {
+      System.out.println(
+        "Multiplicação: " + multiplicacao.calcula(primeiroNumero, segundoNumero)
+      );
+    } else if (digito == 4) {
+      System.out.println(
+        "Divisão: " + divisao.calcula(primeiroNumero, segundoNumero)
+      );
+    }
   }
 
   public static void exercicio2() {

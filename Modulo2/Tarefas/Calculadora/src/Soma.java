@@ -1,4 +1,4 @@
-public class Soma implements Calculo {
+public class Soma implements ICalculo {
 
   private double total;
 

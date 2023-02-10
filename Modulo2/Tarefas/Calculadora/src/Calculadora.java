@@ -2,7 +2,7 @@ public class Calculadora {
 
   //   public Calculadora2(double v1, double v2){}
 
-  private Calculo getOperacao(int operacao) {
+  private ICalculo getOperacao(int operacao) {
     if (operacao == 1) {
       return new Soma();
     } else if (operacao == 2) {
