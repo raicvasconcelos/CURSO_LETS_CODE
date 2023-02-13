@@ -1,5 +1,3 @@
-package Exercícios;
-
 public class Estudante{
 
     private Integer idade;

@@ -1,4 +1,4 @@
-package Exercícios;
+
 
 public enum EstadoCivil {
     SOLTEIRO,
