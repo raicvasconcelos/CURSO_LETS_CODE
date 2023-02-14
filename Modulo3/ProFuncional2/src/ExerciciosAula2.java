@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
+import javax.sound.midi.Soundbank;
 
 public class ExerciciosAula2 {
 
@@ -21,8 +22,8 @@ public class ExerciciosAula2 {
     new Estudante(25, Double.valueOf(94.15))
   );
 
-  private static List<String> strg1 = Arrays.asList("aaaaa", "bbbbb", "ccccc");
-  private static List<String> strg2 = Arrays.asList("aaaaa", "bbbbb", "ccccc");
+  private static List<String> strg1 = Arrays.asList("aaaaa", "bbbbb","ccccc", "ddd");
+  private static List<String> strg2 = Arrays.asList("aaaaa", "bbbbb", "ccccc", "ddd");
 
   public static void main(String[] args) {
     exercicio1();
@@ -62,9 +63,9 @@ public class ExerciciosAula2 {
   }
 
   public static void exercicio4() {
-    BiPredicate<List<String>, List<String>> verificaStrings = (strg1, strg2) ->
-      strg1.equals(strg2);
-    if (verificaStrings.test(strg1, strg2)) {
+    BiPredicate<String, String> verificaStrings = (s1, s2) ->  s1.equals(s2);
+
+    if (BiFilter(strg2, strg1, verificaStrings)) {
       System.out.println("As listas são iguais");
     } else {
       System.out.println("As listas não são iguais");
@@ -79,5 +80,16 @@ public class ExerciciosAula2 {
       }
     }
     return listaFiltrada;
+  }
+
+  public static Boolean BiFilter(List<String> list1,List<String> list2, BiPredicate condition) {
+    for (int i = 0; i < list1.size(); i++) {
+      boolean isEqual = condition.test(list1.get(i), list2.get(i));
+      System.out.println(list1.get(i) + "  " + list2.get(i));
+      if (!isEqual) {
+        return false;
+      }
+    }
+    return true;
   }
 }
