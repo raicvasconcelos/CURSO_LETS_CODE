@@ -1,4 +1,3 @@
-
 public class Pessoa {
     private Integer idade;
     private EstadoCivil estadoCivil;

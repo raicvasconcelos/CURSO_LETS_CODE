@@ -3,17 +3,24 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
-import javax.sound.midi.Soundbank;
+
+
+
 
 public class ExerciciosAula2 {
 
-  private static List<Pessoa> pessoas = Arrays.asList(
-    new Pessoa(12, EstadoCivil.SOLTEIRO),
-    new Pessoa(40, EstadoCivil.CASADO),
-    new Pessoa(30, EstadoCivil.DIVORCIADO),
-    new Pessoa(55, EstadoCivil.SOLTEIRO),
-    new Pessoa(120, EstadoCivil.CASADO)
-  );
+  // private static List<Pessoa> pessoas = Arrays.asList(
+  //   new Pessoa(12, EstadoCivil.SOLTEIRO),
+  //   new Pessoa(40, EstadoCivil.CASADO),
+  //   new Pessoa(30, EstadoCivil.DIVORCIADO),
+  //   new Pessoa(55, EstadoCivil.SOLTEIRO),
+  //   new Pessoa(120, EstadoCivil.CASADO)
+  // );
+
+
+
+
+
   private static List<Estudante> estudantes = Arrays.asList(
     new Estudante(12, Double.valueOf(44.5)),
     new Estudante(20, Double.valueOf(64.5)),
