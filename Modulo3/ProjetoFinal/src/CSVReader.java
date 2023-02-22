@@ -19,19 +19,19 @@ public class CSVReader {
     pagamentos.forEach(System.out::println);
   }
 
-  private static List<Pagamento> readPagamentosfromCSV(String fileName) {
+  public static List<Pagamento> readPagamentosfromCSV(String fileName) {
     List<Pagamento> pagamentos = new ArrayList<>();
     Path pathToFile = Paths.get(fileName);
 
     try (
       BufferedReader br = Files.newBufferedReader(
         pathToFile,
-        StandardCharsets.US_ASCII
+        StandardCharsets.UTF_8
       )
     ) {
       br.readLine(); //Lê a primeira linha de cabeçalho
       String line = br.readLine();
-      while ((line) != null) {
+      while (line != null) {
         String[] attributes = line.split(";");
         Pagamento pagamento = createPagamento(attributes);
         pagamentos.add(pagamento);
@@ -55,4 +55,6 @@ public class CSVReader {
 
     return new Pagamento(clienteNome, dataVencimento, valor, classificacao);
   }
+
+  
 }

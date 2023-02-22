@@ -26,6 +26,21 @@ public String getClienteNome() {
 }
 
 
+public void setDataVencimento(LocalDate dataVencimento) {
+    this.dataVencimento = dataVencimento;
+}
+
+
+public void setValor(Double valor) {
+    this.valor = valor;
+}
+
+
+public void setClassificacao(Integer classificacao) {
+    this.classificacao = classificacao;
+}
+
+
 public LocalDate getDataVencimento() {
     return dataVencimento;
 }
@@ -43,8 +58,8 @@ public Integer getClassificacao() {
 
 @Override
 public String toString() {
-    return "Pagamento [clienteNome=" + clienteNome + ", dataVencimento=" + dataVencimento.format(formarterDate) + ", valor=" + valor
-            + ", classificacao=" + classificacao + "]";
+    return "Pagamento [clienteNome = " + clienteNome + ", dataVencimento = " + dataVencimento.format(formarterDate) + ", valor = " + valor
+            + ", classificacao = " + classificacao + "]";
 }
 
 
