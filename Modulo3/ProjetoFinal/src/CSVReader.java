@@ -12,15 +12,16 @@ import java.util.List;
 public class CSVReader {
 
   public static void main(String[] args) {
+    // String caminho = System.getProperty("user.dir");
     List<Pagamento> pagamentos = readPagamentosfromCSV(
-        "C:/Users/F8371192/OneDrive - Banco do Brasil S.A/Documentos/CURSO_LETS_CODE/Modulo3/ProjetoFinal/src/folhaPagamentos.CSV");
-        pagamentos.forEach(System.out::println);
-    }
+      "./src/folhaPagamentos.CSV"
+    );
+    pagamentos.forEach(System.out::println);
+  }
 
   private static List<Pagamento> readPagamentosfromCSV(String fileName) {
     List<Pagamento> pagamentos = new ArrayList<>();
     Path pathToFile = Paths.get(fileName);
-
 
     try (
       BufferedReader br = Files.newBufferedReader(
@@ -28,11 +29,9 @@ public class CSVReader {
         StandardCharsets.US_ASCII
       )
     ) {
-      
-
       br.readLine(); //Lê a primeira linha de cabeçalho
       String line = br.readLine();
-      while ((line ) != null) {
+      while ((line) != null) {
         String[] attributes = line.split(";");
         Pagamento pagamento = createPagamento(attributes);
         pagamentos.add(pagamento);
@@ -46,10 +45,13 @@ public class CSVReader {
   }
 
   private static Pagamento createPagamento(String[] attributes) {
- String clienteNome = attributes[0];
- LocalDate dataVencimento = LocalDate.parse(attributes[1], DateTimeFormatter.ofPattern("dd/MM/yyyy")) ;
- Double valor = Double.parseDouble( attributes[2]);
- Integer classificacao = Integer.parseInt( attributes[3]);
+    String clienteNome = attributes[0];
+    LocalDate dataVencimento = LocalDate.parse(
+      attributes[1],
+      DateTimeFormatter.ofPattern("dd/MM/yyyy")
+    );
+    Double valor = Double.parseDouble(attributes[2]);
+    Integer classificacao = Integer.parseInt(attributes[3]);
 
     return new Pagamento(clienteNome, dataVencimento, valor, classificacao);
   }
