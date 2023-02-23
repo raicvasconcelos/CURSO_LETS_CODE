@@ -46,15 +46,18 @@ public class CSVReader {
 
   private static Pagamento createPagamento(String[] attributes) {
     String clienteNome = attributes[0];
-    LocalDate dataVencimento = LocalDate.parse(
-      attributes[1],
-      DateTimeFormatter.ofPattern("dd/MM/yyyy")
-    );
+    LocalDate dataVencimento = LocalDate.parse(attributes[1], DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     Double valor = Double.parseDouble(attributes[2]);
     Integer classificacao = Integer.parseInt(attributes[3]);
 
     return new Pagamento(clienteNome, dataVencimento, valor, classificacao);
   }
+  
+
+
+
+
+
 
   
 }
