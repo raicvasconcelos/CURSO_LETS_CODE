@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -11,12 +12,13 @@ import java.util.List;
 
 public class CSVReader {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
     // String caminho = System.getProperty("user.dir");
     List<Pagamento> pagamentos = readPagamentosfromCSV(
       "./src/folhaPagamentos.CSV"
     );
-    pagamentos.forEach(System.out::println);
+    // pagamentos.forEach(System.out::println);
+    // CSVWriter(pagamentos);
   }
 
   public static List<Pagamento> readPagamentosfromCSV(String fileName) {
@@ -52,9 +54,28 @@ public class CSVReader {
 
     return new Pagamento(clienteNome, dataVencimento, valor, classificacao);
   }
+
+
+public static void CSVWriter(List<Pagamento> pagamentosUpdate) throws IOException {
+
+  FileWriter csvWriter = new FileWriter("pagamentoAtualizado.csv");
+
+  for (Pagamento rowData : pagamentosUpdate) {
+    String temp = rowData.toString();
+    csvWriter.append(String.join(",", temp));
+    csvWriter.append("\n");
+  }
+
+  csvWriter.flush();
+  csvWriter.close();
+
+  pagamentosUpdate.forEach(System.out::println);
+
   
 
-
+  
+  
+}
 
 
 
