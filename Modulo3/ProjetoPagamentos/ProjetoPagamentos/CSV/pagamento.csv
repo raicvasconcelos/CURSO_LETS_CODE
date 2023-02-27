@@ -1,0 +1,5 @@
+id;cpf;dataVencimento;valor;situacaoPagamento
+1;111;01/02/2023;153.0;PAGO;
+2;111;01/03/2023;90.0;PAGO;
+3;222;10/01/2023;156.0;PAGO;
+4;333;10/03/2023;90.0;PAGO;
